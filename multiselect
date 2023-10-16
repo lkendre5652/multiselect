@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<title>DROPDOWN-CHECKBOX</title>
+</head>
+<style>
+	.drp-dwn-cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.drp-dwn-cnt ul {
+    list-style: none;
+    font-size: 20px;
+    font-family: monospace;
+    background-color: #a79f9f;
+    max-width: 400px;
+    /* padding: 25px; */
+    margin-top: 0px;
+    overflow-y: scroll;
+/*    height: 0;*/
+}
+.drp-dwn-cnt ul li {
+    display: none;
+	padding: 13px 0px;
+/*	font-size: 15px;*/
+}
+.lbl-cnt{
+	 font-family: monospace;
+    background-color: #a79f9f;
+    max-width: 400px;
+    padding: 25px;
+    font-size: 20px;
+}
+textarea#inp2 {
+    top: 50vh;
+    position: absolute;
+}
+#sp1 {
+    color: white;
+ /*   left: 20px;
+    position: relative;
+*/}
+</style>
+<body>
+
+	<div class="drp-dwn-cnt">
+			<div class="ul-cnt">
+			<div class="lbl-cnt">
+			<label id="labe" >Select Purchasing Domain</label>
+			<span>
+			(<span id="sp1">0</span>)
+			</span>
+			</div>
+		<ul>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Raw Material - Steel Copper, Precious Metals, Aluminum, Zinc etc">Raw Material - Steel Copper, Precious Metals, Aluminum, Zinc etc.</li >
+			<li><input name="check" oninput="check(this.value)" id="inp1" type="checkbox" value="Raw Material - Plastics">Raw Material - Plastics</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Raw Material - Chemicals, Paints, Adhesives etc.">Raw Material - Chemicals, Paints, Adhesives etc.</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Proprietary Products">Proprietary Products</li>
+			<li><input name="check" oninput="check(this.value)" oninput="check(this.value)" type="checkbox" value="Plastic Moulding">Plastic Moulding</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Electrical Assembly">Electrical Assembly</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Forging & Machining">Forging & Machining</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Electronics Components & Assembly">Electronics Components & Assembly</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Sheet Metal & Fasteners">Sheet Metal & Fasteners</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Die Casting">Die Casting</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Polymer Assembly">Polymer Assembly</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Rubber Moulding">Rubber Moulding</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Packaging">Packaging</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Non Bom">Non Bom</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Logistics">Logistics</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Special Process - Metallics">Special Process - Metallics</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Special Process - Plastics">Special Process - Plastics</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Subcontractor">Subcontractor</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="Capital">Capital</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox" value="IT & Automation">IT & Automation</li>
+			<li><input name="check" oninput="check(this.value)" type="checkbox">Other</li>
+		</ul>
+	</div>
+	</div>
+	<textarea type="text" name="" id="inp2"></textarea>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		var x=0
+		  $("label").click(function(){
+		    $("li").slideToggle("slow");
+		    // $(" ul").css("ba","300px");
+		    if(x==0){
+		    $("ul").css("height", "300px");
+		    x=1;
+		    }
+		    else{
+		     $("ul").css("height", "0px");	
+		     x=0;
+		    }
+		  });
+		  // if($("#inp1").is(":checked")){
+		  // 	console.log($('#inp1').val())
+		  // }
+		});
+		// var z=""
+		function check(e){
+			// console.log(e)
+			var checkBox= document.getElementsByName('check');
+			var arr=[];
+			for (var i = 0 ;i<checkBox.length; i++) {
+				if(checkBox[i].checked){
+					arr.push(checkBox[i].value)
+				}
+			}		
+			document.getElementById("inp2").value=arr;
+			document.getElementById("sp1").innerText=arr.length;
+					console.log(arr.length);
+
+			// z=e+","
+			// console.log(z);
+		}
+		// z="ec"
+		// document.getElementById("inp2").innerHTML=z;
+	</script>
+
+</body>
+</html>
